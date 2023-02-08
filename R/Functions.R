@@ -283,7 +283,7 @@ FindDiffHub <- function(rank.df.final = NULL,
     
     #get diffPR.df of ctrl disase for each celltype
     celltype_condition_cols <- c(paste(control, celltype, sep = '_'), paste(disease, celltype,sep = '_'), paste(celltype, control, sep = '_'), paste(celltype, disease,sep = '_'))
-    colnames.in <- colnames(rank.df.final)[colnames(rank.df.final) %in% celltype_condition_cols]
+    colnames.in <- celltype_condition_cols[celltype_condition_cols %in% colnames(rank.df.final)]
     df <- rank.df.final[,colnames.in]
     
     #get disease net # this is not needed in the null distribution generation
